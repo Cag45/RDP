@@ -1,3 +1,4 @@
+
 name: RDP
 on:
   workflow_dispatch:
@@ -26,15 +27,15 @@ jobs:
 
     - name: Create RDP User with Secure Password
       run: |
+        # تأكد من أن هذا الجزء يتم نسخه ولصقه بشكل صحيح لتجنب أخطاء التحليل
         Add-Type -AssemblyName System.Security
-        $charSet = @{
-            Upper   = [char[]](65..90)      # A-Z
-            Lower   = [char[]](97..122)     # a-z
-            Number  = [char[]](48..57)      # 0-9
-            Special = ([char[]](33..47) + [char[]](58..64) +
-                       [char[]](91..96) + [char[]](123..126)) # Special characters
+        <LaTex>$charSet = @{
+            Upper   = [char[]](65..90)
+            Lower   = [char[]](97..122)
+            Number  = [char[]](48..57)
+            Special = ([char[]](33..47) + [char[]](58..64) + [char[]](91..96) + [char[]](123..126))
         }
-        $rawPassword = @()
+        $</LaTex>rawPassword = @()
         <LaTex>$rawPassword += $</LaTex>charSet.Upper | Get-Random -Count 4
         <LaTex>$rawPassword += $</LaTex>charSet.Lower | Get-Random -Count 4
         <LaTex>$rawPassword += $</LaTex>charSet.Number | Get-Random -Count 4
